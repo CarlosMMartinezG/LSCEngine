@@ -1,0 +1,28 @@
+# Requirements for LSCEngine
+# Core data and utility libs
+numpy>=1.24
+pandas>=2.1
+scikit-learn>=1.2
+matplotlib>=3.7
+Pillow>=9.5
+opencv-python>=4.8
+tqdm>=4.66
+
+# Deep learning (PyTorch)
+# Note: for GPU/CUDA, follow official PyTorch install selector: https://pytorch.org/get-started/locally/
+torch>=2.2.0
+torchvision>=0.17.0
+torchaudio>=2.2.0
+
+# TensorFlow (kept for current scripts; remove after full migration to PyTorch if desired)
+tensorflow>=2.13
+
+# MediaPipe (used by mediapipe_clasifier.py)
+mediapipe>=0.10.0
+
+# Optional / tooling
+tensorboard>=2.13
+pyyaml>=6.0
+
+# If you prefer a CPU-only PyTorch wheel on Windows, use the official install command from PyTorch website.
+# The generic pip resolver may not select the correct CUDA wheel for your system.
