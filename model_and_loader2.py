@@ -20,7 +20,7 @@ class BiLSTMModel(nn.Module):
         self.fc = nn.Sequential(
             nn.Linear(hidden_dim*2, 512),
             nn.ReLU(),
-            nn.Linear(128, num_classes)
+            nn.Linear(512, num_classes)
         )
 
     def forward(self, x):
