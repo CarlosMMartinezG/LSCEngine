@@ -7,7 +7,7 @@ import torch.nn as nn
 # ===========================
 
 class BiLSTMModel(nn.Module):
-    def __init__(self, input_dim=63, hidden_dim=128, num_layers=1, num_classes=47):
+    def __init__(self, input_dim=63, hidden_dim=512, num_layers=3, num_classes=47):
         """
         input_dim: dimensiones por frame (21 landmarks * 3 coords = 63)
         hidden_dim: neuronas LSTM
@@ -18,7 +18,7 @@ class BiLSTMModel(nn.Module):
         self.lstm = nn.LSTM(input_dim, hidden_dim, num_layers=num_layers,
                             batch_first=True, bidirectional=True)
         self.fc = nn.Sequential(
-            nn.Linear(hidden_dim*2, 128),
+            nn.Linear(hidden_dim*2, 512),
             nn.ReLU(),
             nn.Linear(128, num_classes)
         )

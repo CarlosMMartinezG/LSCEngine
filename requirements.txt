@@ -1,28 +1,35 @@
-# Requirements for LSCEngine
-# Core data and utility libs
-numpy>=1.24
-pandas>=2.1
-scikit-learn>=1.2
-matplotlib>=3.7
-Pillow>=9.5
-opencv-python>=4.8
-tqdm>=4.66
+# ============================================
+# LSCEngine - Reconocimiento de Lengua de Signos Colombiana
+# Requirements for PyTorch-based model
+# ============================================
 
-# Deep learning (PyTorch)
-# Note: for GPU/CUDA, follow official PyTorch install selector: https://pytorch.org/get-started/locally/
-torch>=2.2.0
-torchvision>=0.17.0
-torchaudio>=2.2.0
+# ---- Deep Learning Framework ----
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
 
-# TensorFlow (kept for current scripts; remove after full migration to PyTorch if desired)
-tensorflow>=2.13
+# Installation note for PyTorch:
+# - CPU only: pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+# - CUDA 11.8: pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+# - CUDA 12.1: pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+# - See https://pytorch.org/get-started/locally/ for latest options
 
-# MediaPipe (used by mediapipe_clasifier.py)
-mediapipe>=0.10.0
+# ---- Computer Vision & MediaPipe ----
+mediapipe>=0.10.0           # Hand pose estimation
+opencv-python>=4.8.0        # Video processing
+imageio>=2.22.0             # GIF/video creation
+imageio-ffmpeg>=0.4.8       # FFmpeg for video I/O
 
-# Optional / tooling
-tensorboard>=2.13
-pyyaml>=6.0
+# ---- Data Processing ----
+numpy>=1.24.0               # Numerical arrays
+pandas>=2.0.0               # Data manipulation
+scikit-learn>=1.2.0         # Train/test split, utilities
 
-# If you prefer a CPU-only PyTorch wheel on Windows, use the official install command from PyTorch website.
-# The generic pip resolver may not select the correct CUDA wheel for your system.
+# ---- Visualization & Utilities ----
+matplotlib>=3.7.0           # Plotting (accuracy graphs)
+tqdm>=4.66.0                # Progress bars
+Pillow>=9.5.0               # Image processing
+
+# ---- Optional ----
+pyyaml>=6.0                 # Config parsing
+tensorboard>=2.13.0         # Training visualization (optional)

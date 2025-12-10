@@ -28,9 +28,9 @@ param_grid = {
 # =====================================================
 # CARGAR DATASET (base sin augment y otro con augment)
 # =====================================================
-# Base dataset (no augment) used for validation and for indexing
+# Dataset base ( sin augment) usado para validación y  para indexado
 base_dataset = LandmarkSequenceDataset(PKL_PATH, augment=False)
-# Augmented dataset used only for training
+# Augmented dataset usado solo para entrenamiento
 aug_dataset = LandmarkSequenceDataset(PKL_PATH, augment=True)
 num_classes = len(base_dataset.class_map)
 
@@ -79,9 +79,9 @@ def train_and_eval(train_idx, val_idx, params):
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=params["lr"])
 
-    EPOCHS = 50 # pequeño para búsquedas de hiperparámetros
+    EPOCHS = 10 # pequeño para búsquedas de hiperparámetros
 
-    # Helpers to compute accuracy on a loader
+    # Función para calcular accuracy
     def compute_accuracy(loader):
         model.eval()
         correct, total = 0, 0
@@ -159,8 +159,7 @@ for lr in param_grid["lr"]:
                     fold_scores.append(acc)
 
                 mean_acc = np.mean(fold_scores)
-                # Guardar la media de accuracy; opcionalmente también se puede guardar
-                # el history de la última fold si interesa analizar curvas.
+                # Guardar la media de accuracy y el historial del último fold
                 results.append({**params, "accuracy": mean_acc, "history": history})
 
                 print(f"Accuracy promedio = {mean_acc:.4f}")
