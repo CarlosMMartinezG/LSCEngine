@@ -65,7 +65,7 @@ class LandmarkSequenceDataset(Dataset):
 # ===========================
 # Función para cargar modelo entrenado
 # ===========================
-def load_model(path, device="cpu", input_dim=63, hidden_dim=128, num_layers=2, num_classes=47):
+def load_model(path, device="cpu", input_dim=63, hidden_dim=512, num_layers=3, num_classes=47):
     model = BiLSTMModel(input_dim=input_dim, hidden_dim=hidden_dim,
                         num_layers=num_layers, num_classes=num_classes)
     model.load_state_dict(torch.load(path, map_location=device))
