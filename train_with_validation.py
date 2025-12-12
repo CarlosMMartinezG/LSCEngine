@@ -206,25 +206,6 @@ print(f"AUC promedio Val: {final_val_auc_avg:.4f}")
 
 
 # ======================================
-# TABLA DE AUC POR CLASE
-# ======================================
-auc_table = pd.DataFrame({
-    'Clase': class_names,
-    'AUC Train': final_train_auc_per_class,
-    'AUC Val': final_val_auc_per_class
-})
-auc_table['AUC Train'] = auc_table['AUC Train'].round(4)
-auc_table['AUC Val'] = auc_table['AUC Val'].round(4)
-
-print("\nTabla de AUC por Clase:")
-print(auc_table.to_string(index=False))
-
-# Opcional: guardar como CSV
-auc_table.to_csv("auc_per_class.csv", index=False)
-print("\nTabla guardada como auc_per_class.csv")
-
-
-# ======================================
 # GRAFICAR ACCURACY
 # ======================================
 plt.figure(figsize=(8, 4))
