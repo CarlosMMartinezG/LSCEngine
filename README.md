@@ -1,4 +1,4 @@
-# LSCEngine - Reconocimiento de Lengua de Signos Colombiana (LSC)
+# LSCEngine - Reconocimiento de Lengua de Señas Colombiana (LSC)
 
 Sistema de reconocimiento de gestos en Lengua de Signos Colombiana usando MediaPipe para extracción de landmarks y redes neuronales BiLSTM con PyTorch.
 
